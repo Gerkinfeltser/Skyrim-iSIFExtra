@@ -1,16 +1,16 @@
 # iSIF Extra
 
-Extra conditions for [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/83246) (SIF).
+Extra conditions for [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/177587) (SIF).
 
 Adds `faction`, `isUnconscious`, and `package` conditions to SIF's icon rules. Write JSON, get icons above NPCs. No configuration needed.
 
-**[Nexus Mods Page](https://www.nexusmods.com/skyrimspecialedition/mods/83246)** — download releases, screenshots, and discussion.
+**[Nexus Mods Page](https://www.nexusmods.com/skyrimspecialedition/mods/179310)** — download releases, screenshots, and discussion.
 
 ## Requirements
 
 - [SKSE64](https://skse.silverlock.org/)
 - [Address Library for SKSE Plugins](https://www.nexusmods.com/skyrimspecialedition/mods/32444)
-- [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/83246)
+- [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/177587)
 
 ## Installation
 
