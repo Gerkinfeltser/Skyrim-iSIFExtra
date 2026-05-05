@@ -1,23 +1,70 @@
-# iSIFExtra
+# iSIF Extra
 
-Extra condition matchers for [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/83246) (SIF). Registers `faction`, `isUnconscious`, and `package` conditions via the SIF plugin API — no need to fork SIF itself.
+Extra conditions for [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/83246) (SIF).
+
+Adds `faction`, `isUnconscious`, and `package` conditions to SIF's icon rules. Write JSON, get icons above NPCs. No configuration needed.
 
 **[Nexus Mods Page](https://www.nexusmods.com/skyrimspecialedition/mods/83246)** — download releases, screenshots, and discussion.
 
-## Conditions
-
-| Condition | Description |
-|-----------|-------------|
-| `faction` | Match actors by faction membership and rank |
-| `isUnconscious` | Match unconscious (knocked out) actors |
-| `package` | Match actors running specific AI packages |
-
 ## Requirements
 
-- Skyrim Special Edition / Anniversary Edition
 - [SKSE64](https://skse.silverlock.org/)
 - [Address Library for SKSE Plugins](https://www.nexusmods.com/skyrimspecialedition/mods/32444)
 - [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/83246)
+
+## Installation
+
+Install with your mod manager. That's it.
+
+## Usage
+
+Write SIF JSON rules using the new conditions and place them in `Data/SKSE/Plugins/SIF/`.
+
+### Faction Membership
+
+Show icons for guards, merchants, thieves — any faction:
+
+```json
+{
+  "match": {
+    "formType": "NPC",
+    "faction": {
+      "formId": ["Skyrim.esm|0x00028470"],
+      "minRank": 1
+    }
+  }
+}
+```
+
+### Unconscious State
+
+Show icons on knocked-out NPCs (works with Knockout and Surrender, etc.):
+
+```json
+{
+  "match": {
+    "formType": "NPC",
+    "isUnconscious": true
+  }
+}
+```
+
+### AI Package
+
+Show icons for NPCs running specific AI packages (following, sandboxing, fleeing):
+
+```json
+{
+  "match": {
+    "formType": "NPC",
+    "package": ["Skyrim.esm|0x00072946", "Skyrim.esm|0x00072948"]
+  }
+}
+```
+
+## Compatibility
+
+No conflicts. Doesn't hook anything — only registers conditions via SIF's public API.
 
 ## Building
 
@@ -43,25 +90,9 @@ Managed via vcpkg with a custom registry for `commonlibsse-ng`:
 - **jsoncpp** — JSON parsing (required by the SIF API header)
 - **spdlog** — Logging framework
 
-## Usage
+## Source Code
 
-Write SIF JSON rules using `faction`, `isUnconscious`, or `package` keys:
-
-```json
-{
-  "rules": [
-    {
-      "icon": { "source": "MyMod/icons.swf", "label": "Guard" },
-      "match": {
-        "formType": "NPC",
-        "faction": { "formId": ["Skyrim.esm|0x00028470"], "minRank": 1 }
-      }
-    }
-  ]
-}
-```
-
-Place JSON files in `Data/SKSE/Plugins/SIF/`.
+[GitHub](https://github.com/Gerkinfeltser/Skyrim-iSIFExtra)
 
 ## License
 
