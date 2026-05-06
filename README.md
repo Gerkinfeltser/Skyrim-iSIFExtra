@@ -62,6 +62,24 @@ Show icons for NPCs running specific AI packages (following, sandboxing, fleeing
 }
 ```
 
+## Creating Custom Icons
+
+A Python tool is included for generating SIF-compatible icon SWFs from PNG images. Static icons only — animated icons require Flash CS6 or manual SWF assembly.
+
+```
+pip install Pillow
+python tools/sif_icon_builder.py icon.png -n myIcon -o Data/Interface/MyMod/icons.swf
+```
+
+Options:
+- `-n` — Export name (must match JSON `label` field, case-sensitive)
+- `-r N` — Resize longest side to N pixels
+- `-c HEX` — Tint color (e.g. `FF0000`), preserves alpha
+- `-s N` — Stage size in pixels (default 64, does not affect icon size)
+- `--fps` — Frame rate (default 30)
+
+PNG pixel dimensions = in-game icon size (no auto-scaling). Typical SIF icons are 16–32px. The output SWF goes in `Data/Interface/` and is referenced by the `source` field in SIF JSON rules.
+
 ## Compatibility
 
 No conflicts. Doesn't hook anything — only registers conditions via SIF's public API.
