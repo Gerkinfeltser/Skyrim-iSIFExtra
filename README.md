@@ -18,7 +18,7 @@ Install with your mod manager. That's it.
 
 ## Usage
 
-Write SIF JSON rules using the new conditions and place them in `Data/SKSE/Plugins/SIF/`.
+Write SIF JSON rules using the new conditions and place them in `SKSE/Plugins/SIF/` in your mod folder (MO2 and Vortex handle the `Data/` mapping automatically). An example file (`iSIFExtra.json.example`) is included; rename it to `iSIFExtra.json` (remove `.example`) to see the demo icons in action.
 
 ### Faction Membership
 
@@ -96,6 +96,7 @@ No conflicts. Doesn't hook anything — only registers conditions via SIF's publ
 ### Build
 
 ```bash
+cd SKSE
 cmake --preset release
 cmake --build build/release
 ```
