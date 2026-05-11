@@ -93,6 +93,35 @@ All fields are AND-combined. Field names are case-insensitive (except inside `ma
 
 These require the [iSIFExtra](https://www.nexusmods.com/skyrimspecialedition/mods/179310) plugin.
 
+#### `actorValue` — Actor Value Range
+
+Show icons based on any actor value (Health, Magicka, Stamina, Paralysis, Aggression, etc.). Matches if the value falls within the specified range.
+
+```json
+{
+  "match": {
+    "formType": "NPC",
+    "actorValue": {
+      "name": "Paralysis",
+      "min": 1
+    }
+  }
+}
+```
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `name` | string | yes | — | Actor value name (resolved via ActorValueList) |
+| `min` | float | no* | — | Minimum value (inclusive) |
+| `max` | float | no* | — | Maximum value (inclusive) |
+
+\* At least one of `min` or `max` is required.
+
+Example with both bounds:
+```json
+"actorValue": { "name": "Health", "min": 50, "max": 100 }
+```
+
 #### `faction` — Faction Membership
 
 Show icons for faction members. Actor matches if **any** faction meets the rank threshold.

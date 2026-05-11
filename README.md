@@ -2,7 +2,7 @@
 
 Extra conditions for [Status Indicator Framework](https://www.nexusmods.com/skyrimspecialedition/mods/177587) (SIF).
 
-Adds `faction`, `isUnconscious`, and `package` conditions to SIF's icon rules. Write JSON, get icons above NPCs. No configuration needed.
+Adds `actorValue`, `faction`, `isUnconscious`, and `package` conditions to SIF's icon rules. Write JSON, get icons above NPCs. No configuration needed.
 
 **[Nexus Mods Page](https://www.nexusmods.com/skyrimspecialedition/mods/179310)** — download releases, screenshots, and discussion.
 
@@ -19,6 +19,30 @@ Install with your mod manager. That's it.
 ## Usage
 
 Write SIF JSON rules using the new conditions and place them in `SKSE/Plugins/SIF/` in your mod folder (MO2 and Vortex handle the `Data/` mapping automatically). An example file (`iSIFExtra.json.example`) is included; rename it to `iSIFExtra.json` (remove `.example`) to see the demo icons in action.
+
+### Actor Value Range
+
+Show icons based on any actor value (Health, Magicka, Paralysis, etc.):
+
+```json
+{
+  "match": {
+    "formType": "NPC",
+    "actorValue": {
+      "name": "Paralysis",
+      "min": 1
+    }
+  }
+}
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | string | yes | Actor value name (e.g. `Health`, `Paralysis`, `Aggression`) |
+| `min` | float | no* | Minimum value (inclusive) |
+| `max` | float | no* | Maximum value (inclusive) |
+
+\* At least one of `min` or `max` is required.
 
 ### Faction Membership
 
