@@ -1,0 +1,100 @@
+{
+  "rules": [
+    {
+      "_comment": "Faction — show icon on living members of the Player faction (0x1BCC0)",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "toddIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "not": { "isDead": true },
+        "faction": {
+          "formId": ["Skyrim.esm|0x0001BCC0"],
+          "minRank": 0
+        }
+      }
+    },
+    {
+      "_comment": "Unconscious — show icon on knocked-out NPCs",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "xIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "isUnconscious": true
+      }
+    },
+    {
+      "_comment": "Package — show icon on NPCs running specific AI packages (sandbox/eat)",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "sweetRollIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "package": ["Skyrim.esm|0x000B998B", "Skyrim.esm|0x0002BE1F"]
+      }
+    },
+    {
+      "_comment": "Follower — show icon on current followers and hirelings",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "toddIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "faction": {
+          "formId": ["Skyrim.esm|0x0005C84E", "Skyrim.esm|0x000BD738", "Skyrim.esm|0x00084D1B"],
+          "minRank": 0
+        }
+      }
+    },
+    {
+      "_comment": "Low health — show icon when living NPC health drops below 20%",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "xIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "not": { "isDead": true },
+        "actorValue": { "name": "Health", "max": 20 }
+      }
+    },
+    {
+      "_comment": "Paralyzed — show icon on paralyzed actors",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "xIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "actorValue": { "name": "Paralysis", "min": 1 }
+      }
+    },
+    {
+      "_comment": "Invisible — show icon on actors with active invisibility",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "xIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "actorValue": { "name": "Invisibility", "min": 1 }
+      }
+    },
+    {
+      "_comment": "Night Eye — show icon on actors with Night Eye active (vampires, Khajiit, spells)",
+      "icon": {
+        "source": "iSIFExtra/iSIFExtraDemo.swf",
+        "label": "xIcon"
+      },
+      "match": {
+        "formType": "NPC",
+        "actorValue": { "name": "NightEye", "min": 1 }
+      }
+    }
+  ]
+}
